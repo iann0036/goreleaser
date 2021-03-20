@@ -141,7 +141,7 @@ func create(ctx *context.Context, arch config.Archive, binaries []*artifact.Arti
 	}
 	if _, err = os.Stat(archivePath); !os.IsNotExist(err) {
 		lock.Unlock()
-		return fmt.Errorf("archive named %s already exists. Check your archive name template", archivePath)
+		return nil
 	}
 	archiveFile, err := os.Create(archivePath)
 	if err != nil {
